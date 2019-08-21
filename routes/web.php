@@ -21,3 +21,6 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::resource('books', 'BookController')->middleware('auth');
+
+Route::get('edit/{id}', 'UserController@edit')->middleware('auth');
+Route::post('update', 'UserController@update')->middleware('auth');

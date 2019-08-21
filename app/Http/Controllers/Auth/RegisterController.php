@@ -70,20 +70,4 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
-    public function edit(Request $request, $id)
-    {
-        $data = $request->validate([
-            'id' => 'required',
-        ]);
-
-        $id = User::findOrFail($data->id);
-
-        User::whereId($id)->update([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-
-    }
 }
